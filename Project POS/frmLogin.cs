@@ -58,7 +58,8 @@ namespace Project_POS
                     return;
                 }
 
-                string query = "SELECT * FROM users WHERE username = @username AND password = @password";
+                // Updated query to select the name
+                string query = "SELECT name FROM users WHERE username = @username AND password = @password";
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@username", username);
@@ -70,7 +71,17 @@ namespace Project_POS
                         {
                             // Login successful
                             MessageBox.Show("Login successful!");
-                            Form1 form1 = new Form1(); // Assuming Form1 is your main form
+
+                            // Retrieve the name from the reader
+                            string name = reader["name"].ToString();
+
+                            // Create an instance of frmMain
+                            frmMain form1 = new frmMain();
+
+                            // Pass the name to frmMain
+                            form1.UserName = name;
+
+                            // Show frmMain and hide the login form
                             form1.Show();
                             this.Hide();
                         }
@@ -84,6 +95,7 @@ namespace Project_POS
                 portForwarded.Stop(); // Stop the SSH tunnel after the operation
             }
         }
+
 
 
 

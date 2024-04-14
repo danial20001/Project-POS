@@ -8,8 +8,6 @@ namespace Project_POS
 {
     internal class MainClass
     {
-
-
         
 
     }

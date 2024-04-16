@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_POS.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,23 @@ namespace Project_POS
         {
             InitializeComponent();
         }
+
+        //Method to add controls in MainForm
+
+        public  void AddControls(Form f)
+        {
+            centerPanel.Controls.Clear();
+            f.Dock = DockStyle.Fill;
+            f.TopLevel = false;
+            centerPanel.Controls.Add(f);
+            f.Show();
+
+
+        }
+
+
+
+
 
         // Use the OnLoad method to set the label text to the username when the form loads
         protected override void OnLoad(EventArgs e)
@@ -47,6 +65,7 @@ namespace Project_POS
         }
 
         
+        
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
         {
@@ -55,13 +74,16 @@ namespace Project_POS
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        private void guna2Button3_Click(object sender, EventArgs e)
-        {
-
+       
+         private void guna2Button3_Click(object sender, EventArgs e)
+            {
+            AddControls(new frmCategoryView());
         }
+
+        
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
@@ -86,6 +108,31 @@ namespace Project_POS
         private void guna2Button9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void centerPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2Button5_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmTableView());
+        }
+
+        private void guna2Button6_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmStaffView());
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            AddControls(new frmProductView());
         }
     }
 }
